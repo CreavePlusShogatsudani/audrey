@@ -1,0 +1,95 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand Colors */
+  --audrey-red: #CD0F2D;
+  --audrey-black: #000000;
+  --audrey-green: #64B9AF;
+  --audrey-white: #FFFFFF;
+  --audrey-off-white: #FAF8F5;
+  --audrey-text-black: #1A1A1A;
+  --audrey-muted-gray: #8B8B8B;
+
+  /* Typography */
+  --font-yugo: "Yu Gothic Medium", YuGothic, sans-serif;
+  --font-futura: "Futura Std", Futura, sans-serif;
+
+  /* Layout */
+  --max-width: 1280px;
+  --content-max-width: 720px;
+  --section-padding-y: 160px;
+  --section-padding-y-mobile: 80px;
+}
+
+/* Base typography defaults */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-yugo);
+  color: var(--audrey-text-black);
+  background: var(--audrey-white);
+}
+
+/* Reveal line — base style (width/color set inline per component) */
+.reveal-line {
+  display: block;
+  transform-origin: left center;
+}
+
+/* Header scroll states */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.header--scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(139, 139, 139, 0.18);
+}
+
+/* Scroll indicator breathing animation — delay matches GSAP entrance (~2.6s) */
+.hero-scroll-indicator {
+  animation: scroll-breathe 2.5s ease-in-out infinite;
+  animation-delay: 2.7s;
+}
+
+@keyframes scroll-breathe {
+  0%, 100% { transform: translateY(0) translateX(-50%); opacity: 0.5; }
+  50%       { transform: translateY(8px) translateX(-50%); opacity: 1; }
+}
+
+/* Utility class for lattice pattern (used by multiple sections) */
+.lattice-pattern {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(205, 15, 45, 0.04) 0,
+      rgba(205, 15, 45, 0.04) 1px,
+      transparent 1px,
+      transparent 30px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(205, 15, 45, 0.04) 0,
+      rgba(205, 15, 45, 0.04) 1px,
+      transparent 1px,
+      transparent 30px
+    );
+}
