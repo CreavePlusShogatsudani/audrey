@@ -52,8 +52,6 @@ export default function FooterTransitionSection() {
       <div
         ref={latticeRef}
         className="lattice-pattern"
-        data-parallax="0.5"
-        data-lattice-weave
         style={{
           position: 'absolute',
           inset: 0,

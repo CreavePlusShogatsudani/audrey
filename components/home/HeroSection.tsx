@@ -7,13 +7,12 @@ export default function HeroSection() {
   const taglineRef = useRef<HTMLParagraphElement>(null);
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // 初期状態：非表示
-    gsap.set([taglineRef.current, line1Ref.current, line2Ref.current, logoRef.current, subRef.current, scrollIndicatorRef.current], {
+    gsap.set([taglineRef.current, line1Ref.current, line2Ref.current, subRef.current, scrollIndicatorRef.current], {
       opacity: 0,
       y: 20,
     });
@@ -36,11 +35,6 @@ export default function HeroSection() {
       duration: 0.6,
       ease: 'power2.out',
     }, '-=0.35')
-    .to(logoRef.current, {
-      opacity: 1, y: 0,
-      duration: 0.55,
-      ease: 'power2.out',
-    }, '-=0.25')
     .to(subRef.current, {
       opacity: 0.75, y: 0,
       duration: 0.5,
@@ -175,29 +169,6 @@ export default function HeroSection() {
             甘酸っぱい魔法。
           </span>
         </h1>
-
-        {/* Logo */}
-        <div
-          ref={logoRef}
-          className="hero-logo"
-          style={{ marginBottom: '48px' }}
-        >
-          <div style={{
-            border: '1.5px solid #1A1A1A',
-            width: '240px',
-            height: '60px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            overflow: 'hidden',
-          }}>
-            <img
-              src="/logo_lg.avif"
-              alt="AUDREY"
-              style={{ height: '36px', width: 'auto', display: 'block' }}
-            />
-          </div>
-        </div>
 
         {/* Sub copy */}
         <p

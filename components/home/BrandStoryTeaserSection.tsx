@@ -65,17 +65,6 @@ export default function BrandStoryTeaserSection() {
 
         {/* Left: Visual */}
         <div style={{ width: '45%', flexShrink: 0, position: 'relative' }}>
-          <div
-            className="lattice-pattern"
-            data-parallax="0.6"
-            data-lattice-weave
-            style={{
-              position: 'absolute',
-              inset: 0,
-              pointerEvents: 'none',
-              zIndex: 0,
-            }}
-          />
           <div style={{ overflow: 'hidden', position: 'relative', zIndex: 1, lineHeight: 0 }}>
             <img
               ref={imgRef}

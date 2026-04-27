@@ -162,8 +162,6 @@ export default function ProductLineupSection() {
 
               {/* Lattice band — below photo */}
               <div
-                data-parallax="0.4"
-                data-illust-type="lattice"
                 style={{
                 width: '100%',
                 height: '8px',
