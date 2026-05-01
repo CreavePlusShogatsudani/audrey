@@ -9,14 +9,14 @@ const variants = [
   {
     key: 'milk',
     label: 'Milk',
-    thumb: 'https://readdy.ai/api/search-image?query=Japanese%20strawberry%20milk%20chocolate%20langue%20de%20chat%20cookie%20close%20up%2C%20pure%20white%20background%2C%20premium%20confectionery%2C%20soft%20diffused%20light%2C%20no%20text&width=80&height=80&seq=glacia_thumb_milk_v2&orientation=squarish',
+    thumb: '/products/glacia_milk.webp',
     mainImg: '/products/glacia_milk_featured.webp',
     desc: 'フランス産発酵バター香るラングドシャ（チュイール）に、ミルキーなホワイトチョコクリームを絞り、フリーズドライいちごをトッピング。小さなブーケのような愛らしい見た目がSNSでも話題の看板商品。5・8・12・24本入りあり。',
   },
   {
     key: 'chocolate',
     label: 'Chocolate',
-    thumb: 'https://readdy.ai/api/search-image?query=Japanese%20strawberry%20dark%20chocolate%20langue%20de%20chat%20cookie%20close%20up%2C%20pure%20white%20background%2C%20premium%20confectionery%2C%20soft%20diffused%20light%2C%20no%20text&width=80&height=80&seq=glacia_thumb_choco_v2&orientation=squarish',
+    thumb: '/products/glacia_chocolate.webp',
     mainImg: '/products/glacia_chocolate_featured.webp',
     desc: 'ほろ苦いcocoa生地のチュイールにミルクチョコクリームを巻き、フリーズドライいちごを飾った大人テイスト。ミルクとのアソートセットも人気。2025年9月に生地の食感がさらに改良されリニューアル済。',
   },
@@ -28,29 +28,20 @@ export default function FeaturedProductSection() {
 
   const sectionRef = useRef<HTMLElement>(null);
   const imgColRef = useRef<HTMLDivElement>(null);
-  const textColRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // 画像：左からスライドイン
       gsap.from(imgColRef.current, {
-        opacity: 0, x: -40,
+        opacity: 0,
+        x: -40,
         duration: 0.75,
         ease: 'power2.out',
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 75%',
+          once: true,
+        },
       });
-
-      // テキスト列：右から各要素 stagger
-      const children = textColRef.current?.children;
-      if (children) {
-        gsap.from(Array.from(children), {
-          opacity: 0, x: 30,
-          duration: 0.6,
-          ease: 'power2.out',
-          stagger: 0.1,
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 72%' },
-        });
-      }
     }, sectionRef);
 
     return () => ctx.revert();
@@ -64,41 +55,26 @@ export default function FeaturedProductSection() {
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 48px', display: 'flex', alignItems: 'center', gap: '96px' }}>
 
-        {/* Left: Product photo — clean, no clutter */}
-        <div ref={imgColRef} style={{ width: '50%', flexShrink: 0, position: 'relative' }}>
-          {/* Subtle lattice — barely visible */}
-          <div
-            className="lattice-pattern"
-            data-parallax="0.7"
+        {/* Left: Product photo */}
+        <div ref={imgColRef} style={{ width: '50%', flexShrink: 0, lineHeight: 0 }}>
+          <img
+            src={current.mainImg}
+            alt="GLACIA"
             style={{
-              position: 'absolute',
-              inset: 0,
-              pointerEvents: 'none',
-              zIndex: 0,
+              width: '100%',
+              height: 'auto',
+              objectFit: 'cover',
+              objectPosition: 'top',
+              display: 'block',
+              transition: 'opacity 0.5s ease',
             }}
           />
-          <div style={{ overflow: 'hidden', position: 'relative', zIndex: 1, lineHeight: 0 }}>
-            <img
-              data-product-parallax="true"
-              src={current.mainImg}
-              alt="GLACIA"
-              style={{
-                width: '100%',
-                height: 'auto',
-                objectFit: 'cover',
-                objectPosition: 'top',
-                display: 'block',
-                transition: 'opacity 0.5s ease',
-                willChange: 'transform',
-              }}
-            />
-          </div>
         </div>
 
-        {/* Right: Text — spacious, hierarchical */}
+        {/* Right: Text */}
         <div style={{ width: '50%', display: 'flex', flexDirection: 'column', gap: '0' }}>
 
-          {/* data-reveal: 横線が伸びてラベルが現れる */}
+          {/* Label */}
           <div data-reveal style={{ marginBottom: '40px' }}>
             <div
               className="reveal-line"
@@ -119,8 +95,7 @@ export default function FeaturedProductSection() {
             </span>
           </div>
 
-          <div ref={textColRef} style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-
+          {/* Product name */}
           <h2 style={{
             fontFamily: '"Futura Std", "Futura", "Helvetica Neue", Arial, sans-serif',
             fontWeight: 500,
@@ -134,7 +109,7 @@ export default function FeaturedProductSection() {
           </h2>
 
           <p style={{
-            fontFamily: '"Yu Gothic Medium", YuGothic, sans-serif',
+            fontFamily: '"Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, sans-serif',
             fontSize: '16px',
             fontWeight: 500,
             color: '#8B8B8B',
@@ -146,21 +121,20 @@ export default function FeaturedProductSection() {
 
           <div style={{ width: '40px', height: '1px', background: '#CD0F2D', marginBottom: '40px' }} />
 
+          {/* Description — always visible, no GSAP opacity */}
           <p style={{
-            fontFamily: '"Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", sans-serif',
+            fontFamily: '"Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, sans-serif',
             fontSize: '15px',
-            fontWeight: 700,
+            fontWeight: 600,
             lineHeight: 2.2,
-            color: '#000000',
+            color: '#1A1A1A',
             margin: '0 0 48px',
             letterSpacing: '0.04em',
-            transition: 'opacity 0.3s ease',
-            WebkitFontSmoothing: 'antialiased',
           }}>
             {current.desc}
           </p>
 
-          {/* Variant selector — minimal */}
+          {/* Variant selector */}
           <div style={{ marginBottom: '48px' }}>
             <span style={{
               fontFamily: '"Futura Std", Futura, "Century Gothic", sans-serif',
@@ -247,7 +221,6 @@ export default function FeaturedProductSection() {
             View Details
             <i className="ri-arrow-right-line" style={{ fontSize: '12px' }}></i>
           </a>
-          </div>{/* /textColRef */}
         </div>
       </div>
     </section>
