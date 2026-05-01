@@ -21,7 +21,7 @@ const products: Product[] = [
     nameJa: 'グレイシア ミルク',
     desc: 'フランス産発酵バター香るラングドシャ（チュイール）に、ミルキーなホワイトチョコクリームを絞り、フリーズドライいちごをトッピング。小さなブーケのような愛らしい見た目がSNSでも話題の看板商品。5・8・12・24本入りあり。',
     badge: '通年',
-    img: 'https://readdy.ai/api/search-image?query=Japanese%20strawberry%20milk%20chocolate%20langue%20de%20chat%20cookies%20neatly%20arranged%20on%20off-white%20surface%2C%20premium%20luxury%20confectionery%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people%2C%20top-down%20view&width=560&height=560&seq=lineup_glacia_milk_v4&orientation=squarish',
+    img: '/products/glacia_milk.webp',
   },
   {
     num: '02',
@@ -29,7 +29,7 @@ const products: Product[] = [
     nameJa: 'グレイシア チョコレート',
     desc: 'ほろ苦いcocoa生地のチュイールにミルクチョコクリームを巻き、フリーズドライいちごを飾った大人テイスト。ミルクとのアソートセットも人気。2025年9月に生地の食感がさらに改良されリニューアル済。',
     badge: '通年',
-    img: 'https://readdy.ai/api/search-image?query=Japanese%20strawberry%20dark%20cocoa%20chocolate%20langue%20de%20chat%20cookies%20neatly%20arranged%20on%20off-white%20surface%2C%20premium%20luxury%20confectionery%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people&width=560&height=560&seq=lineup_glacia_choco_v4&orientation=squarish',
+    img: '/products/glacia_chocolate.webp',
   },
   {
     num: '03',
@@ -37,7 +37,7 @@ const products: Product[] = [
     nameJa: 'ハローベリー ホワイトチョコ',
     desc: 'バター香るクッキー生地をいちごの形に焼き上げたサブレに、ホワイトチョコとフリーズドライいちごをたっぷりコーティング。キュートなフォルムが女性へのギフトとして大人気。',
     badge: '〜5月中旬',
-    img: 'https://readdy.ai/api/search-image?query=Japanese%20strawberry%20shaped%20sable%20cookie%20coated%20white%20chocolate%20freeze%20dried%20strawberry%20on%20off-white%20surface%2C%20premium%20luxury%20confectionery%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people&width=560&height=560&seq=lineup_helloberry_white_v4&orientation=squarish',
+    img: '/products/hello_berry_white.webp',
   },
   {
     num: '04',
@@ -45,7 +45,7 @@ const products: Product[] = [
     nameJa: 'ハローベリー ミルクチョコレート',
     desc: 'いちごの形に焼き上げたサブレに、ミルクチョコレートをたっぷりコーティングした一品。夏季は販売休止。',
     badge: '〜5月中旬',
-    img: 'https://readdy.ai/api/search-image?query=Japanese%20strawberry%20shaped%20sable%20cookie%20coated%20milk%20chocolate%20on%20off-white%20surface%2C%20premium%20luxury%20confectionery%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people&width=560&height=560&seq=lineup_helloberry_milk_v4&orientation=squarish',
+    img: '/products/hello_berry_milk.webp',
   },
   {
     num: '05',
@@ -53,7 +53,7 @@ const products: Product[] = [
     nameJa: 'オードリーバター',
     desc: '詳細準備中',
     badge: '準備中',
-    img: null,
+    img: '/products/audrey_butter.webp',
   },
   {
     num: '06',
@@ -61,7 +61,7 @@ const products: Product[] = [
     nameJa: 'いちごバター',
     desc: '詳細準備中',
     badge: '準備中',
-    img: null,
+    img: '/products/strawberry_butter.webp',
   },
   {
     num: '07',
@@ -69,7 +69,7 @@ const products: Product[] = [
     nameJa: 'ストロベリーホリデー',
     desc: '金・土・日曜日の週末限定販売のパイ菓子。バターの香るパイ生地に、ザラメとフリーズドライ苺をのせた贅沢な一品。',
     badge: '週末限定',
-    img: 'https://readdy.ai/api/search-image?query=Japanese%20butter%20pie%20pastry%20topped%20with%20freeze%20dried%20strawberry%20pieces%20and%20sugar%20crystals%20on%20off-white%20surface%2C%20premium%20luxury%20confectionery%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people&width=560&height=560&seq=lineup_holiday_v3&orientation=squarish',
+    img: '/products/strawberry_holiday.webp',
   },
   {
     num: '08',
@@ -77,7 +77,7 @@ const products: Product[] = [
     nameJa: 'いちごの山',
     desc: '2026年5月3日より販売開始の限定商品。催事限定でのご提供となります。',
     badge: '催事限定',
-    img: 'https://readdy.ai/api/search-image?query=Japanese%20premium%20strawberry%20limited%20confectionery%20mountain%20shaped%20sweets%20on%20off-white%20surface%2C%20luxury%20packaging%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people&width=560&height=560&seq=lineup_ichigonoyama_v4&orientation=squarish',
+    img: '/products/ichigo_no_yama.webp',
   },
 ];
 
