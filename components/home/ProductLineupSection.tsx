@@ -318,6 +318,7 @@ export default function ProductLineupSection() {
               <p style={{
                 fontFamily: '"Yu Gothic Medium", YuGothic, sans-serif',
                 fontSize: '13px',
+                fontWeight: 700,
                 color: '#1A1A1A',
                 margin: '16px 0 0',
                 lineHeight: 1.9,
