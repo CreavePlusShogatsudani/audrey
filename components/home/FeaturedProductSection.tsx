@@ -147,14 +147,15 @@ export default function FeaturedProductSection() {
           <div style={{ width: '40px', height: '1px', background: '#CD0F2D', marginBottom: '40px' }} />
 
           <p style={{
-            fontFamily: '"Yu Gothic Medium", YuGothic, sans-serif',
+            fontFamily: '"Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", sans-serif',
             fontSize: '15px',
-            fontWeight: 500,
+            fontWeight: 700,
             lineHeight: 2.2,
-            color: '#1A1A1A',
+            color: '#000000',
             margin: '0 0 48px',
             letterSpacing: '0.04em',
             transition: 'opacity 0.3s ease',
+            WebkitFontSmoothing: 'antialiased',
           }}>
             {current.desc}
           </p>

@@ -316,13 +316,14 @@ export default function ProductLineupSection() {
 
               {/* Description */}
               <p style={{
-                fontFamily: '"Yu Gothic Medium", YuGothic, sans-serif',
+                fontFamily: '"Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", sans-serif',
                 fontSize: '13px',
                 fontWeight: 700,
-                color: '#1A1A1A',
+                color: '#000000',
                 margin: '16px 0 0',
                 lineHeight: 1.9,
                 letterSpacing: '0.04em',
+                WebkitFontSmoothing: 'antialiased',
               }}>
                 {p.desc}
               </p>
