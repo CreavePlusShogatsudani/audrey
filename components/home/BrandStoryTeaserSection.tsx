@@ -61,10 +61,10 @@ export default function BrandStoryTeaserSection() {
       id="brand-story"
       style={{ width: '100%', padding: '160px 0', background: '#FFFFFF', overflow: 'hidden' }}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 48px', display: 'flex', alignItems: 'center', gap: '96px' }}>
+      <div className="story-inner">
 
         {/* Left: Visual */}
-        <div style={{ width: '45%', flexShrink: 0, position: 'relative' }}>
+        <div className="story-img-col" style={{ position: 'relative' }}>
           <div style={{ overflow: 'hidden', position: 'relative', zIndex: 1, lineHeight: 0 }}>
             <img
               ref={imgRef}
@@ -85,7 +85,7 @@ export default function BrandStoryTeaserSection() {
         </div>
 
         {/* Right: Text */}
-        <div style={{ width: '55%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        <div className="story-text-col" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
 
           {/* data-reveal: 横線が伸びてラベルが現れる */}
           <div data-reveal style={{ marginBottom: '48px' }}>
@@ -109,7 +109,7 @@ export default function BrandStoryTeaserSection() {
           </div>
 
           <h2
-            className="story-catch"
+            className="story-catch story-heading"
             style={{
               fontFamily: '"Yu Gothic Medium", YuGothic, sans-serif',
               fontSize: '48px',
@@ -181,6 +181,24 @@ export default function BrandStoryTeaserSection() {
           </a>
         </div>
       </div>
+
+      <style>{`
+        .story-inner {
+          max-width: 1280px; margin: 0 auto; padding: 0 48px;
+          display: flex; align-items: center; gap: 96px;
+        }
+        .story-img-col { width: 45%; flex-shrink: 0; }
+        .story-text-col { width: 55%; }
+
+        @media (max-width: 767px) {
+          .story-inner { flex-direction: column; gap: 40px; padding: 0 20px; }
+          .story-img-col { width: 100%; }
+          .story-text-col { width: 100%; }
+          .story-heading { font-size: 32px !important; }
+          .story-catch .line { white-space: normal !important; }
+          .story-body .line { white-space: normal !important; }
+        }
+      `}</style>
     </section>
   );
 }

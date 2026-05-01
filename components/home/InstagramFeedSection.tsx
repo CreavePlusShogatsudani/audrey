@@ -101,7 +101,7 @@ export default function InstagramFeedSection() {
       id="instagram"
       style={{ width: '100%', padding: '160px 0', background: '#FAF8F5' }}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 48px' }}>
+      <div className="insta-container">
 
         {/* Header — centered */}
         <div ref={headerRef} style={{ textAlign: 'center', marginBottom: '48px' }}>
@@ -129,7 +129,7 @@ export default function InstagramFeedSection() {
         </div>
 
         {/* Grid — 6 columns, 1:1 squares, gap 12px */}
-        <div ref={gridRef} style={{
+        <div ref={gridRef} className="insta-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(6, 1fr)',
           gap: '12px',
@@ -180,15 +180,13 @@ export default function InstagramFeedSection() {
       </div>
 
       <style>{`
+        .insta-container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
         @media (max-width: 1279px) and (min-width: 768px) {
-          #instagram .insta-grid {
-            grid-template-columns: repeat(3, 1fr) !important;
-          }
+          .insta-grid { grid-template-columns: repeat(3, 1fr) !important; }
         }
         @media (max-width: 767px) {
-          #instagram .insta-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
+          .insta-container { padding: 0 20px; }
+          .insta-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
       `}</style>
     </section>

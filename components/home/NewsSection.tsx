@@ -52,10 +52,10 @@ export default function NewsSection() {
       id="news"
       style={{ width: '100%', padding: '160px 0', background: '#FFFFFF' }}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 48px' }}>
+      <div className="news-container">
 
         {/* Header — left-aligned */}
-        <div ref={headerRef} style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '64px' }}>
+        <div ref={headerRef} className="news-header" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '64px' }}>
           <div>
             <p style={{
               fontFamily: '"Futura Std", Futura, "Century Gothic", sans-serif',
@@ -67,7 +67,7 @@ export default function NewsSection() {
             }}>
               NEWS & UPDATES
             </p>
-            <h2 style={{
+            <h2 className="news-heading" style={{
               fontFamily: '"Futura Std", "Futura", "Helvetica Neue", Arial, sans-serif',
               fontWeight: 500,
               fontSize: '48px',
@@ -97,6 +97,7 @@ export default function NewsSection() {
           {newsItems.map((item, i) => (
             <div key={i}>
               <div
+                className="news-row"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -185,6 +186,17 @@ export default function NewsSection() {
           <i className="ri-arrow-right-line" style={{ fontSize: '12px' }}></i>
         </a>
       </div>
+
+      <style>{`
+        .news-container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+        @media (max-width: 767px) {
+          .news-container { padding: 0 20px; }
+          .news-header { flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 40px; }
+          .news-heading { font-size: 32px !important; }
+          .news-row { flex-wrap: wrap; gap: 8px !important; }
+          .news-row span[style*="width: 120px"] { width: auto !important; font-size: 12px !important; }
+        }
+      `}</style>
     </section>
   );
 }

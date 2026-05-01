@@ -60,7 +60,7 @@ export default function ShopLocationsSection() {
         }}
       />
 
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 48px', position: 'relative', zIndex: 1 }}>
+      <div className="shops-container" style={{ position: 'relative', zIndex: 1 }}>
 
         {/* Header */}
         <div ref={headerRef} style={{ marginBottom: '80px' }}>
@@ -74,7 +74,7 @@ export default function ShopLocationsSection() {
           }}>
             SHOP LOCATIONS
           </p>
-          <h2 style={{
+          <h2 className="shops-heading" style={{
             fontFamily: '"Futura Std", "Futura", "Helvetica Neue", Arial, sans-serif',
             fontWeight: 500,
             fontSize: '48px',
@@ -167,6 +167,14 @@ export default function ShopLocationsSection() {
           <i className="ri-arrow-right-line" style={{ fontSize: '12px' }}></i>
         </a>
       </div>
+
+      <style>{`
+        .shops-container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+        @media (max-width: 767px) {
+          .shops-container { padding: 0 20px; }
+          .shops-heading { font-size: 32px !important; }
+        }
+      `}</style>
     </section>
   );
 }

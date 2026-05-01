@@ -41,7 +41,7 @@ export default function ContactSection() {
         textAlign: 'center',
       }}
     >
-      <div ref={innerRef} style={{
+      <div ref={innerRef} className="contact-inner" style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -51,7 +51,7 @@ export default function ContactSection() {
       }}>
 
         {/* English title */}
-        <h2 style={{
+        <h2 className="contact-heading" style={{
           fontFamily: '"Futura Std", "Futura", "Helvetica Neue", Arial, sans-serif',
           fontWeight: 500,
           fontSize: '40px',
@@ -93,6 +93,7 @@ export default function ContactSection() {
         <button
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
+          className="contact-cta"
           style={{
             fontFamily: '"Futura Std", Futura, "Century Gothic", sans-serif',
             fontWeight: 500,
@@ -117,6 +118,14 @@ export default function ContactSection() {
           <i className="ri-arrow-right-line" style={{ fontSize: '14px' }}></i>
         </button>
       </div>
+
+      <style>{`
+        @media (max-width: 767px) {
+          .contact-inner { padding: 0 20px !important; }
+          .contact-heading { font-size: 28px !important; }
+          .contact-cta { width: 100% !important; max-width: 280px; }
+        }
+      `}</style>
     </section>
   );
 }

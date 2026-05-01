@@ -94,7 +94,7 @@ export default function BrandMessageSection() {
         data-lattice-weave
         style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}
       />
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 48px', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 48px', position: 'relative', zIndex: 1 }} className="brand-msg-container">
         <div style={{
           maxWidth: '640px',
           margin: '0 auto',
@@ -105,7 +105,7 @@ export default function BrandMessageSection() {
         }}>
 
           {/* WITH ALL MY LOVE */}
-          <p ref={taglineRef} style={{
+          <p ref={taglineRef} className="brand-msg-tagline" style={{
             fontFamily: '"Futura Std", Futura, "Century Gothic", sans-serif',
             fontWeight: 500,
             fontSize: '40px',
@@ -126,7 +126,7 @@ export default function BrandMessageSection() {
           }} />
 
           {/* Main message */}
-          <p ref={messageRef} style={{
+          <p ref={messageRef} className="brand-msg-body" style={{
             fontFamily: '"Yu Gothic Medium", YuGothic, sans-serif',
             fontSize: '18px',
             fontWeight: 500,
@@ -157,6 +157,7 @@ export default function BrandMessageSection() {
           {/* CTA button */}
           <a
             ref={ctaRef}
+            className="brand-msg-cta"
             href="#brand-story"
             onClick={e => {
               e.preventDefault();
@@ -195,6 +196,15 @@ export default function BrandMessageSection() {
           </a>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 767px) {
+          .brand-msg-container { padding: 0 20px !important; }
+          .brand-msg-tagline { font-size: 26px !important; letter-spacing: 0.1em !important; }
+          .brand-msg-body { font-size: 15px !important; }
+          .brand-msg-cta { width: 100% !important; max-width: 280px; }
+        }
+      `}</style>
     </section>
   );
 }

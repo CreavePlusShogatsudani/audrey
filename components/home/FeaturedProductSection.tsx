@@ -53,10 +53,10 @@ export default function FeaturedProductSection() {
       id="featured"
       style={{ width: '100%', padding: '160px 0', background: '#FAF8F5', overflow: 'hidden' }}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 48px', display: 'flex', alignItems: 'center', gap: '96px' }}>
+      <div className="featured-inner">
 
         {/* Left: Product photo */}
-        <div ref={imgColRef} style={{ width: '50%', flexShrink: 0, lineHeight: 0 }}>
+        <div ref={imgColRef} className="featured-img-col" style={{ lineHeight: 0 }}>
           <img
             src={current.mainImg}
             alt="GLACIA"
@@ -72,7 +72,7 @@ export default function FeaturedProductSection() {
         </div>
 
         {/* Right: Text */}
-        <div style={{ width: '50%', display: 'flex', flexDirection: 'column', gap: '0' }}>
+        <div className="featured-text-col" style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
 
           {/* Label */}
           <div data-reveal style={{ marginBottom: '40px' }}>
@@ -96,7 +96,7 @@ export default function FeaturedProductSection() {
           </div>
 
           {/* Product name */}
-          <h2 style={{
+          <h2 className="featured-title" style={{
             fontFamily: '"Futura Std", "Futura", "Helvetica Neue", Arial, sans-serif',
             fontWeight: 500,
             fontSize: '80px',
@@ -223,6 +223,21 @@ export default function FeaturedProductSection() {
           </a>
         </div>
       </div>
+      <style>{`
+        .featured-inner {
+          max-width: 1280px; margin: 0 auto; padding: 0 48px;
+          display: flex; align-items: center; gap: 96px;
+        }
+        .featured-img-col { width: 50%; flex-shrink: 0; }
+        .featured-text-col { width: 50%; }
+
+        @media (max-width: 767px) {
+          .featured-inner { flex-direction: column; gap: 40px; padding: 0 20px; }
+          .featured-img-col { width: 100%; }
+          .featured-text-col { width: 100%; }
+          .featured-title { font-size: 52px !important; }
+        }
+      `}</style>
     </section>
   );
 }
