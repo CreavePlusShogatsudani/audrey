@@ -11,12 +11,14 @@ const variants = [
     label: 'Milk',
     thumb: 'https://readdy.ai/api/search-image?query=Japanese%20strawberry%20milk%20chocolate%20langue%20de%20chat%20cookie%20close%20up%2C%20pure%20white%20background%2C%20premium%20confectionery%2C%20soft%20diffused%20light%2C%20no%20text&width=80&height=80&seq=glacia_thumb_milk_v2&orientation=squarish',
     mainImg: 'https://readdy.ai/api/search-image?query=Japanese%20GLACIA%20strawberry%20milk%20chocolate%20langue%20de%20chat%20cookies%20arranged%20elegantly%2C%20fresh%20red%20strawberries%2C%20delicate%20white%20chocolate%20wafer%20cookies%2C%20premium%20luxury%20confectionery%2C%20pure%20white%20background%2C%20soft%20diffused%20natural%20light%2C%20refined%20food%20styling%2C%20no%20text%2C%20no%20people&width=700&height=840&seq=glacia_main_milk_v2&orientation=portrait',
+    desc: 'フランス産発酵バター香るラングドシャ（チュイール）に、ミルキーなホワイトチョコクリームを絞り、フリーズドライいちごをトッピング。小さなブーケのような愛らしい見た目がSNSでも話題の看板商品。5・8・12・24本入りあり。',
   },
   {
     key: 'chocolate',
     label: 'Chocolate',
     thumb: 'https://readdy.ai/api/search-image?query=Japanese%20strawberry%20dark%20chocolate%20langue%20de%20chat%20cookie%20close%20up%2C%20pure%20white%20background%2C%20premium%20confectionery%2C%20soft%20diffused%20light%2C%20no%20text&width=80&height=80&seq=glacia_thumb_choco_v2&orientation=squarish',
     mainImg: 'https://readdy.ai/api/search-image?query=Japanese%20GLACIA%20strawberry%20dark%20chocolate%20langue%20de%20chat%20cookies%20arranged%20elegantly%2C%20fresh%20red%20strawberries%2C%20dark%20chocolate%20wafer%20cookies%2C%20premium%20luxury%20confectionery%2C%20pure%20white%20background%2C%20soft%20diffused%20natural%20light%2C%20refined%20food%20styling%2C%20no%20text%2C%20no%20people&width=700&height=840&seq=glacia_main_choco_v2&orientation=portrait',
+    desc: 'ほろ苦いcocoa生地のチュイールにミルクチョコクリームを巻き、フリーズドライいちごを飾った大人テイスト。ミルクとのアソートセットも人気。2025年9月に生地の食感がさらに改良されリニューアル済。',
   },
 ];
 
@@ -152,10 +154,9 @@ export default function FeaturedProductSection() {
             color: '#1A1A1A',
             margin: '0 0 48px',
             letterSpacing: '0.04em',
+            transition: 'opacity 0.3s ease',
           }}>
-            甘酸っぱい、いちごとミルクチョコクリームを、<br />
-            サクサク・ほろほろ食感のラングドシャで包みました。<br />
-            箱を開けた瞬間、小さなブーケのような愛らしさが咲きます。
+            {current.desc}
           </p>
 
           {/* Variant selector — minimal */}

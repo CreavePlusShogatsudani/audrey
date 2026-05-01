@@ -5,34 +5,79 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const products = [
+type Product = {
+  num: string;
+  nameEn: string;
+  nameJa: string;
+  desc: string;
+  badge: string | null;
+  img: string | null;
+};
+
+const products: Product[] = [
   {
     num: '01',
-    nameEn: 'GLACIA',
-    nameJa: 'グレイシア',
-    desc: '甘酸っぱいいちごとミルクチョコクリームをラングドシャで包んだ、ブランドを象徴する看板商品。',
-    img: 'https://readdy.ai/api/search-image?query=Japanese%20strawberry%20milk%20chocolate%20langue%20de%20chat%20cookies%20neatly%20arranged%20on%20off-white%20surface%2C%20premium%20luxury%20confectionery%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people%2C%20top-down%20view&width=560&height=560&seq=lineup_glacia_v3&orientation=squarish',
+    nameEn: 'GLACIA MILK',
+    nameJa: 'グレイシア ミルク',
+    desc: 'フランス産発酵バター香るラングドシャ（チュイール）に、ミルキーなホワイトチョコクリームを絞り、フリーズドライいちごをトッピング。小さなブーケのような愛らしい見た目がSNSでも話題の看板商品。5・8・12・24本入りあり。',
+    badge: '通年',
+    img: 'https://readdy.ai/api/search-image?query=Japanese%20strawberry%20milk%20chocolate%20langue%20de%20chat%20cookies%20neatly%20arranged%20on%20off-white%20surface%2C%20premium%20luxury%20confectionery%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people%2C%20top-down%20view&width=560&height=560&seq=lineup_glacia_milk_v4&orientation=squarish',
   },
   {
     num: '02',
-    nameEn: 'AUDELEINE',
-    nameJa: 'オードレーヌ',
-    desc: 'リボン型のフォルムが愛らしい、いちごコンフィチュールの香るマドレーヌ。',
-    img: 'https://readdy.ai/api/search-image?query=Japanese%20ribbon%20shaped%20madeleine%20pastry%20with%20strawberry%20jam%20filling%20on%20off-white%20surface%2C%20premium%20luxury%20confectionery%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people&width=560&height=560&seq=lineup_audeleine_v3&orientation=squarish',
+    nameEn: 'GLACIA CHOCOLATE',
+    nameJa: 'グレイシア チョコレート',
+    desc: 'ほろ苦いcocoa生地のチュイールにミルクチョコクリームを巻き、フリーズドライいちごを飾った大人テイスト。ミルクとのアソートセットも人気。2025年9月に生地の食感がさらに改良されリニューアル済。',
+    badge: '通年',
+    img: 'https://readdy.ai/api/search-image?query=Japanese%20strawberry%20dark%20cocoa%20chocolate%20langue%20de%20chat%20cookies%20neatly%20arranged%20on%20off-white%20surface%2C%20premium%20luxury%20confectionery%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people&width=560&height=560&seq=lineup_glacia_choco_v4&orientation=squarish',
   },
   {
     num: '03',
-    nameEn: 'STRAWBERRY HOLIDAY',
-    nameJa: 'ストロベリーホリデー',
-    desc: '週末限定。バターの香るパイ生地に、ザラメとフリーズドライ苺をのせた贅沢な一品。',
-    img: 'https://readdy.ai/api/search-image?query=Japanese%20butter%20pie%20pastry%20topped%20with%20freeze%20dried%20strawberry%20pieces%20and%20sugar%20crystals%20on%20off-white%20surface%2C%20premium%20luxury%20confectionery%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people&width=560&height=560&seq=lineup_holiday_v3&orientation=squarish',
+    nameEn: 'HELLO BERRY WHITE',
+    nameJa: 'ハローベリー ホワイトチョコ',
+    desc: 'バター香るクッキー生地をいちごの形に焼き上げたサブレに、ホワイトチョコとフリーズドライいちごをたっぷりコーティング。キュートなフォルムが女性へのギフトとして大人気。',
+    badge: '〜5月中旬',
+    img: 'https://readdy.ai/api/search-image?query=Japanese%20strawberry%20shaped%20sable%20cookie%20coated%20white%20chocolate%20freeze%20dried%20strawberry%20on%20off-white%20surface%2C%20premium%20luxury%20confectionery%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people&width=560&height=560&seq=lineup_helloberry_white_v4&orientation=squarish',
   },
   {
     num: '04',
-    nameEn: 'AUDREY GIFT SET',
-    nameJa: 'オードリーギフトセット',
-    desc: '人気商品を詰め合わせた、大切な方へのギフトに最適なアソートセット。',
-    img: 'https://readdy.ai/api/search-image?query=Japanese%20luxury%20assorted%20sweets%20gift%20box%20open%20lid%20showing%20elegant%20confectionery%20items%20on%20off-white%20surface%2C%20premium%20red%20ribbon%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people&width=560&height=560&seq=lineup_giftset_v3&orientation=squarish',
+    nameEn: 'HELLO BERRY MILK',
+    nameJa: 'ハローベリー ミルクチョコレート',
+    desc: 'いちごの形に焼き上げたサブレに、ミルクチョコレートをたっぷりコーティングした一品。夏季は販売休止。',
+    badge: '〜5月中旬',
+    img: 'https://readdy.ai/api/search-image?query=Japanese%20strawberry%20shaped%20sable%20cookie%20coated%20milk%20chocolate%20on%20off-white%20surface%2C%20premium%20luxury%20confectionery%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people&width=560&height=560&seq=lineup_helloberry_milk_v4&orientation=squarish',
+  },
+  {
+    num: '05',
+    nameEn: 'AUDREY BUTTER',
+    nameJa: 'オードリーバター',
+    desc: '詳細準備中',
+    badge: '準備中',
+    img: null,
+  },
+  {
+    num: '06',
+    nameEn: 'STRAWBERRY BUTTER',
+    nameJa: 'いちごバター',
+    desc: '詳細準備中',
+    badge: '準備中',
+    img: null,
+  },
+  {
+    num: '07',
+    nameEn: 'STRAWBERRY HOLIDAY',
+    nameJa: 'ストロベリーホリデー',
+    desc: '金・土・日曜日の週末限定販売のパイ菓子。バターの香るパイ生地に、ザラメとフリーズドライ苺をのせた贅沢な一品。',
+    badge: '週末限定',
+    img: 'https://readdy.ai/api/search-image?query=Japanese%20butter%20pie%20pastry%20topped%20with%20freeze%20dried%20strawberry%20pieces%20and%20sugar%20crystals%20on%20off-white%20surface%2C%20premium%20luxury%20confectionery%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people&width=560&height=560&seq=lineup_holiday_v3&orientation=squarish',
+  },
+  {
+    num: '08',
+    nameEn: 'ICHIGO NO YAMA',
+    nameJa: 'いちごの山',
+    desc: '2026年5月3日より販売開始の限定商品。催事限定でのご提供となります。',
+    badge: '催事限定',
+    img: 'https://readdy.ai/api/search-image?query=Japanese%20premium%20strawberry%20limited%20confectionery%20mountain%20shaped%20sweets%20on%20off-white%20surface%2C%20luxury%20packaging%2C%20minimal%20pure%20white%20background%20with%20soft%20shadow%2C%20refined%20elegant%20food%20photography%2C%20no%20text%2C%20no%20people&width=560&height=560&seq=lineup_ichigonoyama_v4&orientation=squarish',
   },
 ];
 
@@ -147,17 +192,65 @@ export default function ProductLineupSection() {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-                <img
-                  src={p.img}
-                  alt={p.nameEn}
-                  style={{
-                    width: '88%',
-                    height: '88%',
-                    objectFit: 'cover',
-                    objectPosition: 'center',
-                    display: 'block',
-                  }}
-                />
+                {p.img ? (
+                  <img
+                    src={p.img}
+                    alt={p.nameEn}
+                    style={{
+                      width: '88%',
+                      height: '88%',
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                      display: 'block',
+                    }}
+                  />
+                ) : (
+                  <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '12px',
+                    opacity: 0.35,
+                  }}>
+                    <div style={{
+                      width: '48px',
+                      height: '48px',
+                      border: '1.5px solid #1A1A1A',
+                      borderRadius: '50%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                      <i className="ri-image-line" style={{ fontSize: '20px', color: '#1A1A1A' }} />
+                    </div>
+                    <span style={{
+                      fontFamily: '"Futura Std", Futura, "Century Gothic", sans-serif',
+                      fontSize: '9px',
+                      letterSpacing: '0.25em',
+                      color: '#1A1A1A',
+                    }}>
+                      COMING SOON
+                    </span>
+                  </div>
+                )}
+                {/* Badge */}
+                {p.badge && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '12px',
+                    left: '12px',
+                    background: p.badge === '準備中' ? '#8B8B8B' : p.badge === '催事限定' ? '#1A1A1A' : '#CD0F2D',
+                    color: '#FFFFFF',
+                    fontFamily: '"Yu Gothic Medium", YuGothic, sans-serif',
+                    fontSize: '10px',
+                    letterSpacing: '0.08em',
+                    padding: '4px 10px',
+                    whiteSpace: 'nowrap',
+                  }}>
+                    {p.badge}
+                  </div>
+                )}
               </div>
 
               {/* Lattice band — below photo */}
