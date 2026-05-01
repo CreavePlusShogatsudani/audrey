@@ -75,7 +75,7 @@ export default function HeroSection() {
       <div className="hero-bg-image" style={{ position: 'absolute', inset: 0, zIndex: 1, overflow: 'hidden' }}>
         <img
           ref={bgRef}
-          src="https://readdy.ai/api/search-image?query=Japanese%20luxury%20strawberry%20and%20cream%20langue%20de%20chat%20cookies%20elegant%20styling%20photography%2C%20fresh%20vivid%20red%20strawberries%20scattered%20around%2C%20delicate%20white%20chocolate%20wafers%20with%20cream%20filling%2C%20pure%20white%20background%2C%20soft%20diffused%20natural%20light%20from%20left%20side%2C%20clean%20minimal%20composition%2C%20premium%20food%20styling%2C%20no%20text%2C%20no%20people%2C%20high-end%20dessert%20editorial%20photography&width=1920&height=1080&seq=hero_glacia_bg_v1&orientation=landscape"
+          src="/hero_main.png"
           alt="AUDREY GLACIA"
           style={{
             width: '100%',
