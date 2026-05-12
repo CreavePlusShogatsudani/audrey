@@ -6,13 +6,12 @@ export default function HeroSection() {
   const bgRef = useRef<HTMLImageElement>(null);
   const taglineRef = useRef<HTMLParagraphElement>(null);
   const line1Ref = useRef<HTMLSpanElement>(null);
-  const line2Ref = useRef<HTMLSpanElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // 初期状態：非表示
-    gsap.set([taglineRef.current, line1Ref.current, line2Ref.current, subRef.current, scrollIndicatorRef.current], {
+    gsap.set([taglineRef.current, line1Ref.current, subRef.current, scrollIndicatorRef.current], {
       opacity: 0,
       y: 20,
     });
@@ -30,11 +29,6 @@ export default function HeroSection() {
       duration: 0.6,
       ease: 'power2.out',
     }, '-=0.3')
-    .to(line2Ref.current, {
-      opacity: 1, y: 0,
-      duration: 0.6,
-      ease: 'power2.out',
-    }, '-=0.35')
     .to(subRef.current, {
       opacity: 0.75, y: 0,
       duration: 0.5,
@@ -163,10 +157,7 @@ export default function HeroSection() {
           }}
         >
           <span ref={line1Ref} className="line" style={{ display: 'block', whiteSpace: 'nowrap' }}>
-            苺とチョコが織りなす、
-          </span>
-          <span ref={line2Ref} className="line" style={{ display: 'block', whiteSpace: 'nowrap' }}>
-            甘酸っぱい魔法。
+            幸せのおすそわけ
           </span>
         </h1>
 
